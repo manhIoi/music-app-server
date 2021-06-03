@@ -20,6 +20,10 @@ const songSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
+  artist: {
+    type: String,
+    required: true,
+  },
 });
 const songModel = mongoose.model("songs", songSchema);
 
