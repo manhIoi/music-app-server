@@ -12,7 +12,10 @@ const songService = {
   },
 
   async getSongByAlbumId(idAlbum) {
-    const allSong = await songModel.find({ album: idAlbum });
+    const allSong = await songModel.find({ album: idAlbum }).populate({
+      path: "album",
+      select: ["_id", "name", "artist", "suggestion"],
+    });
 
     return allSong;
   },
