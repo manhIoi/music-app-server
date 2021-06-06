@@ -11,6 +11,7 @@ const mongoose = require("mongoose");
 const suggestionRoute = require("./src/modules/Suggestion/suggestion.controller");
 const albumRoute = require("./src/modules/Album/album.controller");
 const songRoute = require("./src/modules/Song/song.controller");
+const userRoute = require("./src/modules/User/user.controller");
 
 var app = express();
 app.use(cors());
@@ -25,6 +26,7 @@ app.use(express.static(path.join(__dirname, "public")));
 app.use("/suggestions", suggestionRoute);
 app.use("/albums", albumRoute);
 app.use("/songs", songRoute);
+app.use("/users", userRoute);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
