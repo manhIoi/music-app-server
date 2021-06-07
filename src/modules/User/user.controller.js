@@ -21,7 +21,7 @@ router.post("/register", async (req, res) => {
       email: newAccount.email,
     });
     if (emailExist) {
-      return res.status(400).send("Email already exist! ");
+      return res.send("Email already exist! ");
     }
 
     // hash password
@@ -49,14 +49,14 @@ router.post("/login", async (req, res) => {
       email: account.email,
     });
     if (!emailAlready) {
-      return res.status(400).send("Email is not found");
+      return res.send("Email is not found");
     }
     const isPassword = await bcrypt.compare(
       account.password,
       emailAlready.password
     );
     if (!isPassword) {
-      return res.status(400).send("Password is incorrect");
+      return res.send("Password is incorrect");
     }
 
     const token = jwt.sign({ _id: emailAlready._id }, process.env.TOKEN);
