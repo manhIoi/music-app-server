@@ -1,8 +1,15 @@
 const mongoose = require("mongoose");
 const myFavoriteSchema = new mongoose.Schema({
-  _idUser: {},
-  listSong: {},
+  _idUser: {
+    type: mongoose.SchemaTypes.ObjectId,
+    ref: "users",
+    required: true,
+  },
+  listSong: {
+    type: Array,
+    default: [],
+  },
 });
-const songModel = mongoose.model("songs", songSchema);
+const myFavoriteModel = mongoose.model("myFavorite", myFavoriteSchema);
 
-module.exports = songModel;
+module.exports = myFavoriteModel;

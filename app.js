@@ -12,6 +12,7 @@ const suggestionRoute = require("./src/modules/Suggestion/suggestion.controller"
 const albumRoute = require("./src/modules/Album/album.controller");
 const songRoute = require("./src/modules/Song/song.controller");
 const userRoute = require("./src/modules/User/user.controller");
+const myFavoriteRoute = require("./src/modules/MyFavorite/myFavorite.controller");
 
 var app = express();
 app.use(cors());
@@ -27,6 +28,7 @@ app.use("/suggestions", suggestionRoute);
 app.use("/albums", albumRoute);
 app.use("/songs", songRoute);
 app.use("/users", userRoute);
+app.use("/myFavorite", myFavoriteRoute);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
