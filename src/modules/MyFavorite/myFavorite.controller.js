@@ -51,9 +51,9 @@ router.get("/:idUser", async (req, res) => {
   try {
     const { idUser } = req.params;
     const body = await myFavoriteService.getMyFavoriteByUser(idUser);
-    if (!body) {
-      return res.send("Not found");
-    }
+    // if (!body) {
+    //   return res.send("Not found");
+    // }
     return res.json(body);
   } catch (error) {
     return res.send(error.message);
