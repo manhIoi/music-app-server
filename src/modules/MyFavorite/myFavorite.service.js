@@ -50,7 +50,8 @@ const myFavoriteService = {
     }
   },
   async getMyFavoriteByUser(idUser) {
-    return await myFavoriteModel.findOne({ _idUser: idUser });
+    const result = await myFavoriteModel.findOne({ _idUser: idUser });
+    return result;
   },
 };
 
