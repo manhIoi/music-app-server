@@ -1,10 +1,7 @@
 const myFavoriteModel = require("./myFavorite.model");
 const myFavoriteService = {
   async getAllMyFavorite() {
-    return await myFavoriteModel.find({}).populate({
-      path: "user",
-      select: ["_id", "email"],
-    });
+    return await myFavoriteModel.find({});
   },
   async createMyFavoriteById(idUser) {
     return await myFavoriteModel.create({ _idUser: idUser });

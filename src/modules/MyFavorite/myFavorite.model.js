@@ -1,8 +1,7 @@
 const mongoose = require("mongoose");
 const myFavoriteSchema = new mongoose.Schema({
   _idUser: {
-    type: mongoose.SchemaTypes.ObjectId,
-    ref: "users",
+    type: String,
     required: true,
   },
   listSong: {
