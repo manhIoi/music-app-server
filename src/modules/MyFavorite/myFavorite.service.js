@@ -11,7 +11,7 @@ const myFavoriteService = {
 
     if (myFavoriteUser) {
       const songExist = myFavoriteUser.listSong.find(
-        (song) => song._id === newSong._id
+        song => song._id === newSong._id
       );
       if (songExist) return { message: "Song is already in album" };
 
@@ -33,7 +33,7 @@ const myFavoriteService = {
 
     if (myFavoriteUser) {
       const resultListSong = myFavoriteUser.listSong.filter(
-        (song) => song._id !== idSong
+        song => song._id !== idSong
       );
 
       return await myFavoriteModel.findOneAndUpdate(
@@ -52,6 +52,9 @@ const myFavoriteService = {
   async getMyFavoriteByUser(idUser) {
     const result = await myFavoriteModel.findOne({ _idUser: idUser });
     return result;
+  },
+  async removeAllMyFavorite() {
+    return await myFavoriteModel.remove({});
   },
 };
 
