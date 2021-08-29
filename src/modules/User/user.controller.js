@@ -82,7 +82,7 @@ router.post("/login", async (req, res) => {
   }
 });
 
-router.get("/checkPassword", auth, async (req, res) => {
+router.put("/checkPassword", auth, async (req, res) => {
   try {
     const { password, _id } = req.body;
     const currentUser = await userService.findAccount({
